@@ -1,20 +1,4 @@
-<template lang='html'>
-  <div class='codit'>
-    <div class='container'>
-      <nav class='menu'>
-        <co-search
-          v-on:search='onSearch'
-        ></co-search>
-        <co-bookmarks></co-bookmarks>
-      </nav>
-      <main class='content'>
-        <header class='content__header'>
-          <co-logo></co-logo>
-        </header>
-        <co-developers></co-developers>
-      </main>
-    </div>
-  </div>
+<template lang='pug' src='./App.pug'>
 </template>
 
 <script>
@@ -40,4 +24,44 @@
 </script>
 
 <style lang='css'>
+  @import 'assets/css/reset';
+  @import 'assets/css/global';
+</style>
+
+<style lang='css' scoped>
+  @import './assets/css/colors.css';
+  @import './assets/css/mixins.css';
+  .codit {
+    @apply --flex-col;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 1px;
+    word-break: break-word;
+    & .container {
+      @apply --flex-row;
+      background-color: var(--color-lighter-grey);
+      width: 100%;
+      height: 100%;
+      max-width: 80vh;run
+      min-width: 400px;
+      max-height: 90vh;
+      min-height: 300px;
+    }
+    & .menu {
+      @apply --flex-col;
+      max-width: 15rem;
+      background-color: var(--color-blue);
+    }
+    & .content {
+      @apply --flex-col;
+      flex: 1;
+    }
+    & .content__header {
+      padding: 1rem;
+      text-align: center;
+      background-color: var(--color-blue);
+    }
+  }
 </style>
