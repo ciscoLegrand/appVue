@@ -4,14 +4,13 @@
     type='text'
     placeholder='Write an user!'
     class='search'
-    v-model='criteria'
+    v-on:keyup.enter='onSearch'
+    v-focus
   />
 
 </template>
 
 <script>
-  import bus from '@/busdata.js'
-
   export default {
     name: 'CoSearch',
     data () {
@@ -19,14 +18,16 @@
         criteria: ''
       }
     },
-    watch: {
-      criteria () {
-        // this.$emit('search', this.criteria)
-        bus.$emit('search', this.criteria)
+    methods: {
+      onSearch () {
+        this.$emit('search', this.criteria)
       }
     }
   }
 </script>
 
-<style lang='css'>
+<style lang='css' scoped>
+  .search {
+    margin: 1rem;
+  }
 </style>
